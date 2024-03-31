@@ -1,0 +1,145 @@
+:root {
+  /* COLORS */
+  --bck--primary: white;
+  --button-primary: black;
+  --button-secondary: #e60023;
+  --button-hovered: #ad081b;
+  --grey-primary: #e2e2e2;
+  --grey-secondary: #ddd;
+  --grey-hovered: #878787;
+  --blue-hovered: #7abaff;
+
+  /* SIZES */
+  --button-height: 48px;
+  --font-size-M: 12px;
+  --font-size-L: 16px;
+  --br-XL: 25px;
+  --br-L: 20px;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+button {
+  background-color: white;
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+  height: 48px;
+  border-radius: 25px;
+  padding: 0 16px;
+  cursor: pointer;
+}
+.navbar {
+  background-color: white;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#initial-button {
+  background-color: black;
+  color: white;
+}
+.image-button-s {
+  width: 30px;
+}
+.nav-div {
+  display: flex;
+  padding: 0;
+}
+
+#searchBar {
+  flex: 1 1 auto;
+  padding: 0 0 0 16px;
+  height: 40px;
+  border-radius: 25px;
+  border: none;
+  background-color: #e2e2e2;
+}
+#searchBar:hover {
+  background-color: #ddd;
+  border: none;
+}
+#searchBar:focus {
+  outline: none;
+  border: 4px solid var(--blue-hovered);
+}
+
+.button > * {
+  width: 30px;
+  margin-top: 12px;
+}
+
+#perfilImg {
+  padding: 0;
+  border-radius: 20px;
+  background-color: var(--grey-secondary);
+}
+
+.button > *:hover {
+  border-radius: 20px;
+  background-color: var(--grey-primary);
+}
+
+.notifications {
+  font-size: var(--font-size-M);
+  background-color: var(--button-primary);
+  color: var(--grey-secondary);
+  padding: 10px;
+  border-radius: 8px;
+  position: relative;
+  right: 3rem;
+}
+#messages {
+  right: 20px;
+}
+#perfil {
+  margin-top: 0.5rem;
+  right: 8px;
+}
+#options {
+  width: 250%;
+  right: 15px;
+  top: 0;
+  right: 1.5rem;
+}
+
+@media (max-width: 770px) {
+  #first-div {
+    display: none;
+  }
+  #seconDiv {
+    width: 100px;
+  }
+  .button > * {
+    width: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  #first-div {
+    display: none;
+  }
+  #seconDiv {
+    width: 100px;
+  }
+  .button > * {
+    width: 1rem;
+  }
+}
+
+@media (max-width: 350px) {
+  #first-div {
+    display: none;
+  }
+  #seconDiv {
+    width: 100px;
+  }
+  .button > * {
+    width: 1rem;
+  }
+}

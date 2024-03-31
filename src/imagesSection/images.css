@@ -1,0 +1,4 @@
+.cardSection {
+    columns: 5 320px;
+    column-gap: 0.5em;
+  }
