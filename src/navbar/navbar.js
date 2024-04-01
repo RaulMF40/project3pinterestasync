@@ -130,20 +130,30 @@ const homeButton = document.getElementById('initial-button');
 const exploreButton = document.querySelector('.nav-div:nth-child(1) button:nth-child(3)');
 const createButtonElement = document.querySelector('.nav-div:nth-child(1) button:nth-child(4)');
 
-// Agregar eventos de clic a los botones "Inicio" y "Explorar" para borrar la búsqueda, restablecer currentPage a 1 y cargar imágenes automáticamente
-homeButton.addEventListener('click', () => {
-  searchInput.value = ''; // Borrar la búsqueda al hacer clic en "Inicio"
-  currentPage = 1; // Restablecer currentPage a 1
-  CallApi(''); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente
-  clearPage(); // Clear the page
+// Agregar evento de clic al botón "Inicio" para llamar a la función CallApi con una cadena vacía
+homeButton.addEventListener('click', async () => {
+    try {
+        searchInput.value = ''; // Borrar la búsqueda al hacer clic en "Inicio"
+        currentPage = 1; // Restablecer currentPage a 1
+        await CallApi(''); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente
+        clearPage(); // Clear the page
+    } catch (error) {
+        console.error('Error al realizar la búsqueda:', error);
+    }
 });
 
-exploreButton.addEventListener('click', () => {
-  searchInput.value = ''; // Borrar la búsqueda al hacer clic en "Explorar"
-  currentPage = 1; // Restablecer currentPage a 1
-  CallApi(''); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente
-  clearPage(); // Clear the page
+// Agregar evento de clic al botón "Explorar" para llamar a la función CallApi con una cadena vacía
+exploreButton.addEventListener('click', async () => {
+    try {
+        searchInput.value = ''; // Borrar la búsqueda al hacer clic en "Explorar"
+        currentPage = 1; // Restablecer currentPage a 1
+        await CallApi(''); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente
+        clearPage(); // Clear the page
+    } catch (error) {
+        console.error('Error al realizar la búsqueda:', error);
+    }
 });
+
 
 // Add event listener to search input to clear page when empty
 searchInput.addEventListener('input', function() {
