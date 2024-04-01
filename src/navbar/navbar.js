@@ -125,12 +125,13 @@ search('término de búsqueda');
 // Get the home button and other buttons from the navigation bar
 const homeButton = document.getElementById('initial-button');
 const exploreButton = document.querySelector('.nav-div:nth-child(1) button:nth-child(3)');
-const createButton = document.querySelector('.nav-div:nth-child(1) button:nth-child(4)');
+const createButtonElement = document.querySelector('.nav-div:nth-child(1) button:nth-child(4)');
 
 // Add event listeners to the buttons to reset the page
 homeButton.addEventListener('click', clearPage);
 exploreButton.addEventListener('click', clearPage);
-createButton.addEventListener('click', clearPage);
+createButtonElement.addEventListener('click', clearPage); // Cambia el nombre de la constante
+
 
 // Add event listener to search input to clear page when empty
 searchInput.addEventListener('input', function() {
