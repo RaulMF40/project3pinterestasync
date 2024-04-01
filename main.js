@@ -34,7 +34,7 @@ let totalImages = 0
   }
 } */
 
-async function CallApi(inputValue, page = 1, perPage = 20) {
+async function CallApi(inputValue, page = 1, perPage = 15) {
   const ACCESS_KEY = 'ZoYrICho_8WIhQQu2dAtWN2D6QGb5xfgBn7ieXbloYA'
   const API_URL = `https://api.unsplash.com/search/photos?query=${inputValue}&page=${page}&per_page=${perPage}&client_id=${ACCESS_KEY}`
   try {
@@ -59,7 +59,7 @@ async function CallApi(inputValue, page = 1, perPage = 20) {
   }
 }
 
-CallApi('landscape', 1, 20)
+CallApi('landscape', 1, 15)
 
 const handleKeyDown = (event) => {
   if (event.key === 'Enter') {
