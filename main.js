@@ -18,15 +18,16 @@ async function CallApi(inputValue, page = 1, perPage = 15) {
     const app = document.querySelector('#app');
     const cardSection = document.createElement('section');
     cardSection.className = 'cardSection';
+
     if (data && data.results && data.results.length > 0) {
-      if (page === 1) {
-        cardSection.innerHTML = ''; // Limpiar la sección de tarjetas si estamos en la primera página
-      }
+      cardSection.innerHTML = ''; // Limpiar la sección de tarjetas antes de mostrar los nuevos resultados
       data.results.forEach((item) => {
         drawCard(item, cardSection);
       });
-      app.append(cardSection);
+      app.innerHTML = ''; // Limpiar la página antes de mostrar los nuevos resultados
+      app.append(cardSection); // Mostrar los nuevos resultados
     } else {
+      app.innerHTML = ''; // Limpiar la página si no hay resultados
       createCardSection(); // Volver a crear la sección de tarjetas si no hay resultados
       console.log('Data is empty or not defined:', data);
     }
@@ -34,6 +35,7 @@ async function CallApi(inputValue, page = 1, perPage = 15) {
     console.log('Error al obtener los datos de la API', error);
   }
 }
+
 
 CallApi('landscape', currentPage); // Llama a la función CallApi para cargar las imágenes iniciales
 
