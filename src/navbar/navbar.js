@@ -91,33 +91,42 @@ const app = document.querySelector('#app');
 document.body.insertBefore(createNavBar, app);
 
 // Eliminar los resultados anteriores
-function limpiarPagina() {
-    const resultadosAnteriores = document.querySelectorAll('.resultado');
-    resultadosAnteriores.forEach(resultado => resultado.remove());
+function clearPage() {
+    const previousResults = document.querySelectorAll('.result');
+    previousResults.forEach(result => result.remove());
 }
 
 // Función para pintar los nuevos resultados
-function pintarNuevosResultados(nuevosResultados) {
-    limpiarPagina(); // Limpiar la página antes de pintar los nuevos resultados
-    nuevosResultados.forEach(resultado => {
-        // Crear un elemento de resultado y configurarlo
-        const resultadoElement = document.createElement('div');
-        resultadoElement.className = 'resultado';
-        resultadoElement.textContent = resultado;
+function renderNewResults(newResults) {
+    clearPage(); // Clear the page before rendering new results
+    newResults.forEach(result => {
+        // Create a result element and configure it
+        const resultElement = document.createElement('div');
+        resultElement.className = 'result';
+        resultElement.textContent = result;
 
-        // Agregar el elemento de resultado al contenedor de resultados
-        document.body.appendChild(resultadoElement);
+        // Add the result element to the results container
+        document.body.appendChild(resultElement);
     });
 }
 
 // Lógica de búsqueda para obtener nuevos resultados (Ejemplo)
-function buscar(query) {
+function search(query) {
     // Aquí iría la lógica real de búsqueda para obtener nuevos resultados
     // Por ahora, estamos usando resultados de ejemplo
-    const nuevosResultados = ["Resultado 1", "Resultado 2", "Resultado 3"];
-    
-    pintarNuevosResultados(nuevosResultados);
+    const newResults = ["Result 1", "Result 2", "Result 3"];    
+    renderNewResults(newResults);
 }
 
 // Ejemplo de llamada a la función de búsqueda
-buscar('término de búsqueda');
+search('search term');
+
+// Obtener el botón de inicio y otros botones de la barra de navegación
+const homeButton = document.getElementById('initial-button');
+const exploreButton = document.querySelector('.nav-div:nth-child(1) button:nth-child(2)');
+const createButton = document.querySelector('.nav-div:nth-child(1) button:nth-child(3)');
+
+// Agregar manejadores de eventos a los botones
+homeButton.addEventListener('click', clearPage);
+exploreButton.addEventListener('click', clearPage);
+createButton.addEventListener('click', clearPage);
