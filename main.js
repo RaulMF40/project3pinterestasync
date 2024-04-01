@@ -9,7 +9,7 @@ import { currentPage } from './src/globals.js';
 createCardSection();
 let currentPage = 1;
 
-async function CallApi(inputValue, page = 1, perPage = 15, resetPage = false) {
+async function CallApi(inputValue, page = 1, perPage = 15, resetPage = true) {
   const ACCESS_KEY = 'ZoYrICho_8WIhQQu2dAtWN2D6QGb5xfgBn7ieXbloYA';
   const API_URL = `https://api.unsplash.com/search/photos?query=${inputValue}&page=${page}&per_page=${perPage}&client_id=${ACCESS_KEY}`;
   try {
@@ -21,7 +21,7 @@ async function CallApi(inputValue, page = 1, perPage = 15, resetPage = false) {
     cardSection.className = 'cardSection';
 
     if (resetPage) {
-      currentPage = 1; // Resetear currentPage a 1 si se establece la bandera resetPage
+      currentPage = 1; // Restablecer currentPage a 1 si se establece la bandera resetPage
     }
 
     if (data && data.results && data.results.length > 0) {
