@@ -77,11 +77,13 @@ const exploreButton = document.querySelector('.nav-div:nth-child(1) button:nth-c
 
 homeButton.addEventListener('click', () => {
   searchInput.value = ''; // Borrar la búsqueda al hacer clic en "Inicio"
+  currentPage = 1; // Resetear currentPage a 1
   CallApi('', currentPage); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente
 });
 
 exploreButton.addEventListener('click', () => {
   searchInput.value = ''; // Borrar la búsqueda al hacer clic en "Explorar"
+  currentPage = 1; // Resetear currentPage a 1
   CallApi('', currentPage); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente
 });
 
