@@ -4,7 +4,7 @@ import { drawCard } from './src/cards/cards.js';
 import { createButton } from './src/button/button.js';
 import { createFooter } from './src/footer/footer.js';
 import { createNavBar, searchInput } from './src/navbar/navbar.js'; // Importa createNavBar y searchInput
-import { currentPage } from './globals.js';
+import { currentPage } from './src/globals.js';
 
 createCardSection();
 let currentPage = 1;
