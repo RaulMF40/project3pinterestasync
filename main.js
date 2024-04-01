@@ -86,7 +86,7 @@ searchInput.addEventListener('keydown', handleKeyDown)
 createButton()
 
 const showMoreButton = document.getElementById('show-more')
-let currentPage = 2
+let currentPage = 1
 
 showMoreButton.addEventListener('click', async () => {
   try {
