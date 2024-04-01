@@ -1,5 +1,11 @@
 import './button.css';
 
+// Función que maneja la lógica de cargar más contenido
+const loadMoreContent = () => {
+  // Aquí puedes colocar la lógica para cargar más contenido
+  console.log('Cargando más contenido...');
+};
+
 export const createButton = () => {
   const showMoreButton = document.createElement('button');
   showMoreButton.id = 'show-more';
@@ -7,9 +13,8 @@ export const createButton = () => {
 
   // Agregar evento de clic al botón
   showMoreButton.addEventListener('click', () => {
-    // Aquí puedes poner la funcionalidad que deseas que ocurra cuando se haga clic en el botón
-    console.log('¡El botón "Mostrar más" ha sido clicado!');
-    // Por ejemplo, podrías llamar a una función o realizar alguna acción específica aquí
+    // Llamar a la función para cargar más contenido
+    loadMoreContent();
   });
 
   // Añadir el botón al cuerpo del documento
