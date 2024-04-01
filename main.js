@@ -83,3 +83,4 @@ showMoreButton.addEventListener('click', async () => {
 });
 
 createFooter(); // Crea el pie de página
+
