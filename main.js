@@ -6,7 +6,7 @@ import { createFooter } from './src/footer/footer.js';
 import { createNavBar, searchInput } from './src/navbar/navbar.js'; // Importa createNavBar y searchInput
 
 createCardSection();
-let currentPage = 2;
+let currentPage = 1;
 
 async function CallApi(inputValue, page = 1, perPage = 15, resetPage = false) {
   const ACCESS_KEY = 'ZoYrICho_8WIhQQu2dAtWN2D6QGb5xfgBn7ieXbloYA';
