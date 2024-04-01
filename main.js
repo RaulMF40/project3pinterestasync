@@ -75,16 +75,17 @@ document.body.insertBefore(navbar, app); // Inserta la barra de navegación ante
 const homeButton = document.getElementById('initial-button');
 const exploreButton = document.querySelector('.nav-div:nth-child(1) button:nth-child(3)');
 
+// Agregar eventos de clic a los botones "Inicio" y "Explorar" para borrar la búsqueda, restablecer currentPage a 1 y cargar imágenes automáticamente
 homeButton.addEventListener('click', () => {
   searchInput.value = ''; // Borrar la búsqueda al hacer clic en "Inicio"
   currentPage = 1; // Resetear currentPage a 1
-  CallApi('', currentPage); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente
+  CallApi('', 1); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente y currentPage a 1
 });
 
 exploreButton.addEventListener('click', () => {
   searchInput.value = ''; // Borrar la búsqueda al hacer clic en "Explorar"
   currentPage = 1; // Resetear currentPage a 1
-  CallApi('', currentPage); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente
+  CallApi('', 1); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente y currentPage a 1
 });
 
 
