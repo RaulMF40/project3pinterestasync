@@ -128,17 +128,20 @@ const homeButton = document.getElementById('initial-button');
 const exploreButton = document.querySelector('.nav-div:nth-child(1) button:nth-child(3)');
 const createButtonElement = document.querySelector('.nav-div:nth-child(1) button:nth-child(4)');
 
-// Add event listeners to the buttons to reset the page
+// Agregar eventos de clic a los botones "Inicio" y "Explorar" para borrar la búsqueda, restablecer currentPage a 1 y cargar imágenes automáticamente
 homeButton.addEventListener('click', () => {
-  currentPage = 1; // Reset currentPage to 1
+  searchInput.value = ''; // Borrar la búsqueda al hacer clic en "Inicio"
+  currentPage = 1; // Restablecer currentPage a 1
+  CallApi(''); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente
   clearPage(); // Clear the page
 });
 
 exploreButton.addEventListener('click', () => {
-  currentPage = 1; // Reset currentPage to 1
+  searchInput.value = ''; // Borrar la búsqueda al hacer clic en "Explorar"
+  currentPage = 1; // Restablecer currentPage a 1
+  CallApi(''); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente
   clearPage(); // Clear the page
 });
-createButtonElement.addEventListener('click', clearPage);
 
 // Add event listener to search input to clear page when empty
 searchInput.addEventListener('input', function() {
@@ -146,3 +149,6 @@ searchInput.addEventListener('input', function() {
         clearPage();
     }
 });
+
+// Agregar evento de clic al botón "Crear" para limpiar la página
+createButtonElement.addEventListener('click', clearPage);
