@@ -138,4 +138,3 @@ searchInput.addEventListener('input', function() {
         clearPage();
     }
 });
-
