@@ -8,15 +8,21 @@ import { createNavBar, searchInput } from './src/navbar/navbar.js'; // Importa c
 createCardSection();
 let currentPage = 2;
 
-async function CallApi(inputValue, page = 2, perPage = 30) {
+async function CallApi(inputValue, page = 1, perPage = 15, resetPage = false) {
   const ACCESS_KEY = 'ZoYrICho_8WIhQQu2dAtWN2D6QGb5xfgBn7ieXbloYA';
   const API_URL = `https://api.unsplash.com/search/photos?query=${inputValue}&page=${page}&per_page=${perPage}&client_id=${ACCESS_KEY}`;
   try {
     const response = await fetch(API_URL);
     const data = await response.json();
+
     const app = document.querySelector('#app');
     const cardSection = document.createElement('section');
     cardSection.className = 'cardSection';
+
+    if (resetPage) {
+      currentPage = 1; // Resetear currentPage a 1 si se establece la bandera resetPage
+    }
+
     if (data && data.results && data.results.length > 0) {
       cardSection.innerHTML = ''; // Limpiar la sección de tarjetas antes de mostrar los nuevos resultados
       data.results.forEach((item) => {
@@ -78,14 +84,12 @@ const exploreButton = document.querySelector('.nav-div:nth-child(1) button:nth-c
 // Agregar eventos de clic a los botones "Inicio" y "Explorar" para borrar la búsqueda, restablecer currentPage a 1 y cargar imágenes automáticamente
 homeButton.addEventListener('click', () => {
   searchInput.value = ''; // Borrar la búsqueda al hacer clic en "Inicio"
-  currentPage = 1; // Resetear currentPage a 1
-  CallApi('', 1); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente y currentPage a 1
+  CallApi('', 1, undefined, true); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente, currentPage a 1 y resetPage a true
 });
 
 exploreButton.addEventListener('click', () => {
   searchInput.value = ''; // Borrar la búsqueda al hacer clic en "Explorar"
-  currentPage = 1; // Resetear currentPage a 1
-  CallApi('', 1); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente y currentPage a 1
+  CallApi('', 1, undefined, true); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente, currentPage a 1 y resetPage a true
 });
 
 
