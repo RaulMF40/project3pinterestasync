@@ -35,12 +35,7 @@ async function CallApi(inputValue, page = 1, perPage = 15) {
   }
 }
 
-// Llama a la función createNavBar para obtener el elemento de navegación
-const navbar = createNavBar();
-
-// Inserta la barra de navegación en el DOM
-const app = document.querySelector('#app');
-document.body.insertBefore(navbar, app); // Inserta la barra de navegación antes de #app
+CallApi('landscape', currentPage); // Llama a la función CallApi para cargar las imágenes iniciales
 
 // Función para manejar el evento de tecla presionada
 const handleKeyDown = (event) => {
@@ -53,20 +48,6 @@ const handleKeyDown = (event) => {
 };
 
 searchInput.addEventListener('keydown', handleKeyDown); // Agrega el evento de presionar tecla al input de búsqueda
-
-// Agregar eventos de clic a los botones "Inicio" y "Explorar" para borrar la búsqueda y cargar imágenes automáticamente
-const homeButton = document.getElementById('initial-button');
-const exploreButton = document.querySelector('.nav-div:nth-child(1) button:nth-child(3)');
-
-homeButton.addEventListener('click', () => {
-  searchInput.value = ''; // Borrar la búsqueda al hacer clic en "Inicio"
-  CallApi('', currentPage); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente
-});
-
-exploreButton.addEventListener('click', () => {
-  searchInput.value = ''; // Borrar la búsqueda al hacer clic en "Explorar"
-  CallApi('', currentPage); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente
-});
 
 createButton(); // Crea el botón "Mostrar más" al principio
 
@@ -83,4 +64,26 @@ showMoreButton.addEventListener('click', async () => {
 });
 
 createFooter(); // Crea el pie de página
+
+// Llama a la función createNavBar para obtener el elemento de navegación
+const navbar = createNavBar();
+
+// Inserta la barra de navegación en el DOM
+const app = document.querySelector('#app');
+document.body.insertBefore(navbar, app); // Inserta la barra de navegación antes de #app
+
+// Agregar eventos de clic a los botones "Inicio" y "Explorar" para borrar la búsqueda y cargar imágenes automáticamente
+const homeButton = document.getElementById('initial-button');
+const exploreButton = document.querySelector('.nav-div:nth-child(1) button:nth-child(3)');
+
+homeButton.addEventListener('click', () => {
+  searchInput.value = ''; // Borrar la búsqueda al hacer clic en "Inicio"
+  CallApi('', currentPage); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente
+});
+
+exploreButton.addEventListener('click', () => {
+  searchInput.value = ''; // Borrar la búsqueda al hacer clic en "Explorar"
+  CallApi('', currentPage); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente
+});
+
 
