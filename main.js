@@ -6,19 +6,17 @@ import { createFooter } from './src/footer/footer.js';
 import { createNavBar, searchInput } from './src/navbar/navbar.js'; // Importa createNavBar y searchInput
 
 createCardSection();
-let currentPage = 1;
+let currentPage = 2;
 
-async function CallApi(inputValue, page = 1, perPage = 15) {
+async function CallApi(inputValue, page = 2, perPage = 30) {
   const ACCESS_KEY = 'ZoYrICho_8WIhQQu2dAtWN2D6QGb5xfgBn7ieXbloYA';
   const API_URL = `https://api.unsplash.com/search/photos?query=${inputValue}&page=${page}&per_page=${perPage}&client_id=${ACCESS_KEY}`;
   try {
     const response = await fetch(API_URL);
     const data = await response.json();
-
     const app = document.querySelector('#app');
     const cardSection = document.createElement('section');
     cardSection.className = 'cardSection';
-
     if (data && data.results && data.results.length > 0) {
       cardSection.innerHTML = ''; // Limpiar la sección de tarjetas antes de mostrar los nuevos resultados
       data.results.forEach((item) => {
@@ -35,7 +33,6 @@ async function CallApi(inputValue, page = 1, perPage = 15) {
     console.log('Error al obtener los datos de la API', error);
   }
 }
-
 
 CallApi('landscape', currentPage); // Llama a la función CallApi para cargar las imágenes iniciales
 
