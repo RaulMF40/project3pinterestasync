@@ -117,9 +117,7 @@ function renderNewResults(newResults) {
 function search(query) {
     // Here goes the actual search logic to fetch new results
     // For now, we're using example results
-    const newResults = ["Resultado 1", "Resultado 2", "Resultado 3"];
-    
-    renderNewResults(newResults);
+   const newResults = ["Resultado 1", "Resultado 2", "Resultado 3"]; 
 }
 
 // Example of calling the search function
