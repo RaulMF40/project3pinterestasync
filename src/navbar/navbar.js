@@ -129,8 +129,15 @@ const exploreButton = document.querySelector('.nav-div:nth-child(1) button:nth-c
 const createButtonElement = document.querySelector('.nav-div:nth-child(1) button:nth-child(4)');
 
 // Add event listeners to the buttons to reset the page
-homeButton.addEventListener('click', clearPage);
-exploreButton.addEventListener('click', clearPage);
+homeButton.addEventListener('click', () => {
+  currentPage = 1; // Reset currentPage to 1
+  clearPage(); // Clear the page
+});
+
+exploreButton.addEventListener('click', () => {
+  currentPage = 1; // Reset currentPage to 1
+  clearPage(); // Clear the page
+});
 createButtonElement.addEventListener('click', clearPage);
 
 // Add event listener to search input to clear page when empty
@@ -139,4 +146,3 @@ searchInput.addEventListener('input', function() {
         clearPage();
     }
 });
-
