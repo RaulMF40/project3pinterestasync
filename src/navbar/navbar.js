@@ -94,6 +94,7 @@ document.body.insertBefore(createNavBar, app);
 function clearPage() {
     const previousResults = document.querySelectorAll('.resultado');
     previousResults.forEach(result => result.remove());
+    searchInput.value = ''; // Clear search input
 }
 
 // Function to render new results
@@ -125,17 +126,12 @@ search('término de búsqueda');
 // Get the home button and other buttons from the navigation bar
 const homeButton = document.getElementById('initial-button');
 const exploreButton = document.querySelector('.nav-div:nth-child(1) button:nth-child(3)');
+const createButtonElement = document.querySelector('.nav-div:nth-child(1) button:nth-child(4)');
 
-// Add event listeners to the buttons to reset the page and load images
-homeButton.addEventListener('click', () => {
-    searchInput.value = ''; // Clear the search when clicking "Inicio"
-    search(''); // Call the search function with an empty string to load images automatically
-});
-
-exploreButton.addEventListener('click', () => {
-    searchInput.value = ''; // Clear the search when clicking "Explorar"
-    search(''); // Call the search function with an empty string to load images automatically
-});
+// Add event listeners to the buttons to reset the page
+homeButton.addEventListener('click', clearPage);
+exploreButton.addEventListener('click', clearPage);
+createButtonElement.addEventListener('click', clearPage);
 
 // Add event listener to search input to clear page when empty
 searchInput.addEventListener('input', function() {
