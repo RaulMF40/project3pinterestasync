@@ -113,11 +113,13 @@ function renderNewResults(newResults) {
     });
 }
 
-// Search logic to fetch new results (Example)
 function search(query) {
-    // Here goes the actual search logic to fetch new results
-    // For now, we're using example results
-   const newResults = ["Resultado 1", "Resultado 2", "Resultado 3"]; 
+    try {
+        // Llamar a la función CallApi con la consulta de búsqueda
+        CallApi(query);
+    } catch (error) {
+        console.error('Error al realizar la búsqueda:', error);
+    }
 }
 
 // Example of calling the search function
