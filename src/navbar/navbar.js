@@ -1,4 +1,6 @@
 import '/src/navbar/navbar.css';
+import { currentPage } from '../main.js';
+
 
 // Create the navigation bar element
 export const createNavBar = document.createElement('nav');
