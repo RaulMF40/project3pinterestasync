@@ -6,7 +6,7 @@ const loadMoreContent = () => {
   console.log('Cargando más contenido...');
 };
 
-export const createButton = () => {
+export const createButtonElement = () => {
   const showMoreButton = document.createElement('button');
   showMoreButton.id = 'show-more';
   showMoreButton.innerText = 'Mostrar más';
