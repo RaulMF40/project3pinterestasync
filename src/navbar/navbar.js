@@ -23,10 +23,11 @@ initialButton.id = 'initial-button';
 initialButton.innerText = 'Inicio';
 
 // Create the explorer button
-const exploreButton = document.createElement('button');
-exploreButton.innerText = 'Explorar';
+const explorerButton = document.createElement('button');
+explorerButton.innerText = 'Explorar';
+explorerButton.id = 'explorer-button'; 
 
-firstDiv.append(pinterestButton, initialButton, exploreButton);
+firstDiv.append(pinterestButton, initialButton, explorerButton);
 
 // Create the search input
 export const searchInput = document.createElement('input');
