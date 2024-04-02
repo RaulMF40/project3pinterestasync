@@ -21,6 +21,7 @@ pinterestButton.append(pinterestImage);
 // Create the refresh button
 const refreshButton = document.createElement('button');
 refreshButton.innerText = 'Refrescar';
+refreshButton.classList.add('refresh-button'); // Añadir clase al botón de refresco
 refreshButton.addEventListener('click', () => {
     window.location.reload();
 });
@@ -37,6 +38,7 @@ const createButton = document.createElement('button');
 createButton.innerText = 'Crear';
 
 firstDiv.append(pinterestButton, refreshButton, initialButton, explorerButton, createButton);
+firstDiv.appendChild(refreshButton);
 
 // Create the search input
 export const searchInput = document.createElement('input');
