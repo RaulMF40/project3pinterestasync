@@ -18,13 +18,14 @@ pinterestImage.src = 'https://upload.wikimedia.org/wikipedia/commons/0/08/Pinter
 pinterestButton.append(pinterestImage);
 
 // Create the refresh button
-const refreshButton = document.createElement('button');
-export const refreshButton = document.createElement('button');
+const refreshButton = document.createElement('button');  // Solo creamos el botón una vez
 refreshButton.innerText = 'Refrescar';
 refreshButton.classList.add('refresh-button'); // Añadir clase al botón de refresco
 refreshButton.addEventListener('click', () => {
     window.location.reload();
 });
+// Y aquí lo exportamos
+export { refreshButton };
 
 // Create the initial button
 const initialButton = document.createElement('button');
@@ -158,7 +159,6 @@ exploreButton.addEventListener('click', async () => {
         console.error('Error al realizar la búsqueda:', error);
     }
 });
-
 
 // Add event listener to search input to clear page when empty
 searchInput.addEventListener('input', function() {
