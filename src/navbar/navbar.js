@@ -1,6 +1,7 @@
 import '/src/navbar/navbar.css';
 import { currentPage } from '../../globals.js';
 
+import { currentPage } from '../../globals.js';
 
 // Create the navigation bar element
 export const createNavBar = document.createElement('nav');
@@ -26,19 +27,16 @@ refreshButton.addEventListener('click', () => {
     window.location.reload();
 });
 
-// Create other buttons for the navigation bar
+// Create the initial button
 const initialButton = document.createElement('button');
 initialButton.id = 'initial-button';
 initialButton.innerText = 'Inicio';
 
+// Create the explorer button
 const explorerButton = document.createElement('button');
 explorerButton.innerText = 'Explorar';
 
-const createButton = document.createElement('button');
-createButton.innerText = 'Crear';
-
-firstDiv.append(pinterestButton, refreshButton, initialButton, explorerButton, createButton);
-firstDiv.appendChild(refreshButton);
+firstDiv.append(pinterestButton, refreshButton, initialButton, explorerButton);
 
 // Create the search input
 export const searchInput = document.createElement('input');
@@ -134,10 +132,9 @@ function search(query) {
 // Example of calling the search function
 search('término de búsqueda');
 
-// Get the home button and other buttons from the navigation bar
+// Get the home button and explore button from the navigation bar
 const homeButton = document.getElementById('initial-button');
 const exploreButton = document.querySelector('.nav-div:nth-child(1) button:nth-child(3)');
-const createButtonElement = document.querySelector('.nav-div:nth-child(1) button:nth-child(4)');
 
 // Agregar evento de clic al botón "Inicio" para llamar a la función CallApi con una cadena vacía
 homeButton.addEventListener('click', async () => {
