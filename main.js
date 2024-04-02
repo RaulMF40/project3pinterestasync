@@ -199,7 +199,6 @@ explorerButton.addEventListener('click', () => {
 searchInput.addEventListener('input', function() {
     if (searchInput.value === '') {
       clearPage();
-        // Puedes agregar aquí cualquier acción adicional que desees realizar cuando el campo de búsqueda esté vacío
     }
 });
 
