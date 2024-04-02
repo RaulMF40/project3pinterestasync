@@ -180,24 +180,27 @@ showMoreButton.addEventListener('click', async () => {
 createFooter(); // Crea el pie de página
 
 // Agregar evento de clic al botón "Inicio" para llamar a la función CallApi con una cadena vacía
-homeButton.addEventListener('click', () => {
-  try {
-    searchInput.value = ''; // Borrar la búsqueda al hacer clic en "Inicio"
-    currentPage.value = 1; // Restablecer currentPage a 1
-    CallApi(''); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente
-  } catch (error) {
-    console.error('Error al realizar la búsqueda:', error);
-  }
+homeButton.addEventListener('click', async () => {
+    try {
+        searchInput.value = ''; // Borrar la búsqueda al hacer clic en "Inicio"
+        currentPage = 1; // Restablecer currentPage a 1
+        await CallApi(''); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente
+    } catch (error) {
+        console.error('Error al realizar la búsqueda:', error);
+    }
 });
 
 // Agregar evento de clic al botón de explorar para recargar la página
-showMoreButton.addEventListener('click', () => {
-  window.location.reload(); // Recargar la página
+explorerButton.addEventListener('click', () => {
+    window.location.reload(); // Recargar la página
 });
 
+// Mantener el evento de entrada en el campo de búsqueda para realizar acciones adicionales según sea necesario
 searchInput.addEventListener('input', function() {
-  if (searchInput.value === '') {
-    // clearPage();
-  }
+    if (searchInput.value === '') {
+      clearPage();
+        // Puedes agregar aquí cualquier acción adicional que desees realizar cuando el campo de búsqueda esté vacío
+    }
 });
+
 
