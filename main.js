@@ -182,12 +182,20 @@ createFooter(); // Crea el pie de página
 // Agregar evento de clic al botón "Inicio" para llamar a la función CallApi con una cadena vacía
 homeButton.addEventListener('click', async () => {
     try {
-        searchInput.value = ''; // Borrar la búsqueda al hacer clic en "Inicio"
+        /* searchInput.value = ''; // Borrar la búsqueda al hacer clic en "Inicio"
         currentPage = 1; // Restablecer currentPage a 1
         await CallApi(''); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente
     } catch (error) {
         console.error('Error al realizar la búsqueda:', error);
-    }
+    } */
+      try {
+    currentPage.value++; // Incrementa el número de página actual
+    const inputValue = searchInput.value;
+    await CallApi(inputValue, currentPage.value); // Llama a la función CallApi con el término de búsqueda actual y la página actual
+  } catch (error) {
+    console.error('Error al cargar más imágenes', error);
+  }
+});
 });
 
 // Agregar evento de clic al botón de explorar para recargar la página
