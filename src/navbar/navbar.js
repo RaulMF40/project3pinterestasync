@@ -91,16 +91,18 @@ createNavBar.append(firstDiv, searchInput, secondDiv);
 const app = document.querySelector('#app');
 document.body.insertBefore(createNavBar, app);
 
+/*
 // Remove previous results
 function clearPage() {
     const previousResults = document.querySelectorAll('.resultado');
     previousResults.forEach(result => result.remove());
     searchInput.value = ''; // Clear search input
 }
+*/
 
 // Function to render new results
 function renderNewResults(newResults) {
-    clearPage(); // Clear the page before rendering new results
+    /*clearPage();*/ // Clear the page before rendering new results
     newResults.forEach(result => {
         // Create a result element and configure it
         const resultElement = document.createElement('div');
@@ -125,9 +127,10 @@ function search(query) {
 search('término de búsqueda');
 
 // Get the home button and explore button from the navigation bar
-const homeButton = document.getElementById('initial-button');
-const explorerButton = document.getElementById('explorer-button');
+export const homeButton = document.getElementById('initial-button'); // Exportamos homeButton para que sea accesible desde main.js
+export const explorerButton = document.getElementById('explorer-button'); // Exportamos explorerButton para que sea accesible desde main.js
 
+/*
 // Agregar evento de clic al botón "Inicio" para llamar a la función CallApi con una cadena vacía
 homeButton.addEventListener('click', async () => {
     try {
@@ -151,3 +154,4 @@ searchInput.addEventListener('input', function() {
         clearPage();
     }
 });
+*/
