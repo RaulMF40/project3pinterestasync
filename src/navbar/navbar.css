@@ -16,11 +16,13 @@
   --br-XL: 25px;
   --br-L: 20px;
 }
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
 button {
   background-color: white;
   border: none;
@@ -31,6 +33,29 @@ button {
   padding: 0 16px;
   cursor: pointer;
 }
+
+/* Estilos para el botón de refresco */
+.refresh-button {
+  background-color: var(--button-secondary); /* Utiliza la variable CSS definida */
+  color: white; /* Color del texto */
+  font-weight: bold; /* Texto en negrita */
+  border-radius: var(--br-L); /* Radio de borde */
+  padding: 0 16px; /* Relleno horizontal */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+}
+
+.refresh-button:hover {
+  background-color: var(--button-hovered); /* Cambia el color al pasar el cursor */
+}
+
+.refresh-button:focus {
+  outline: none; /* Quita el contorno al hacer clic */
+}
+
+.refresh-button:active {
+  transform: translateY(2px); /* Añade un pequeño efecto de clic */
+}
+
 .navbar {
   background-color: white;
   padding: 10px;
@@ -40,13 +65,16 @@ button {
   justify-content: space-between;
   align-items: center;
 }
+
 #initial-button {
   background-color: black;
   color: white;
 }
+
 .image-button-s {
   width: 30px;
 }
+
 .nav-div {
   display: flex;
   padding: 0;
@@ -60,10 +88,12 @@ button {
   border: none;
   background-color: #e2e2e2;
 }
+
 #searchBar:hover {
   background-color: #ddd;
   border: none;
 }
+
 #searchBar:focus {
   outline: none;
   border: 4px solid var(--blue-hovered);
@@ -94,13 +124,16 @@ button {
   position: relative;
   right: 3rem;
 }
+
 #messages {
   right: 20px;
 }
+
 #perfil {
   margin-top: 0.5rem;
   right: 8px;
 }
+
 #options {
   width: 250%;
   right: 15px;
@@ -143,3 +176,4 @@ button {
     width: 1rem;
   }
 }
+
