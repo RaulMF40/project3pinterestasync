@@ -3,10 +3,11 @@ import { createCardSection } from './src/imagesSection/images.js';
 import { drawCard } from './src/cards/cards.js';
 import { createButton } from './src/button/button.js';
 import { createFooter } from './src/footer/footer.js';
-import { createNavBar, searchInput, refreshButton } from './src/navbar/navbar.js'; // Importa createNavBar, searchInput y refreshButton desde navbar.js
+import { createNavBar, searchInput } from './src/navbar/navbar.js'; // Importa createNavBar y searchInput
 import { currentPage } from './src/globals.js';
 
 createCardSection();
+let currentPage = 1;
 
 async function CallApi(inputValue, page = 1, perPage = 15, resetPage = true) {
   const ACCESS_KEY = 'ZoYrICho_8WIhQQu2dAtWN2D6QGb5xfgBn7ieXbloYA';
@@ -70,11 +71,15 @@ showMoreButton.addEventListener('click', async () => {
 
 createFooter(); // Crea el pie de página
 
-// Agregar un evento de clic al botón de refrescar
-refreshButton.addEventListener('click', () => {
-  const confirmRefresh = confirm('¿Estás seguro de que quieres refrescar la página?');
-  if (confirmRefresh) {
-    window.location.reload();
-  }
-});
+// Llama a la función createNavBar para obtener el elemento de navegación
+const navbar = createNavBar();
 
+// Inserta la barra de navegación en el DOM
+const app = document.querySelector('#app');
+document.body.insertBefore(navbar, app); // Inserta la barra de navegación antes de #app
+
+// Agregar un evento de clic al botón de explorar para refrescar la página
+const exploreButton = document.querySelector('.nav-div:nth-child(1) button:nth-child(3)');
+exploreButton.addEventListener('click', () => {
+    window.location.reload();
+});
