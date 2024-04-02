@@ -26,7 +26,7 @@ initialButton.innerText = 'Inicio';
 // Create the explorer button
 const explorerButton = document.createElement('button');
 explorerButton.innerText = 'Explorar';
-explorerButton.id = 'explorer-button';
+explorerButton.id = 'explorer-button'; 
 
 firstDiv.append(pinterestButton, initialButton, explorerButton);
 
@@ -94,11 +94,56 @@ document.body.insertBefore(createNavBar, app);
 // Remove previous results
 function clearPage() {
     const previousResults = document.querySelectorAll('.resultado');
-    if (previousResults.length > 0) {
-        previousResults.forEach(result => result.remove());
-    }
+    previousResults.forEach(result => result.remove());
     searchInput.value = ''; // Clear search input
 }
+
+// Function to render new results
+function renderNewResults(newResults) {
+    clearPage(); // Clear the page before rendering new results
+    newResults.forEach(result => {
+        // Create a result element and configure it
+        const resultElement = document.createElement('div');
+        resultElement.className = 'resultado';
+        resultElement.textContent = result;
+
+        // Add the result element to the results container
+        document.body.appendChild(resultElement);
+    });
+}
+
+function search(query) {
+    try {
+        // Llamar a la función CallApi con la consulta de búsqueda
+        CallApi(query);
+    } catch (error) {
+        console.error('Error al realizar la búsqueda:', error);
+    }
+}
+
+// Example of calling the search function
+search('término de búsqueda');
+
+// Get the home button and explore button from the navigation bar
+const homeButton = document.getElementById('initial-button');
+const explorerButton = document.getElementById('explorer-button');
+
+// Agregar evento de clic al botón "Inicio" para llamar a la función CallApi con una cadena vacía
+homeButton.addEventListener('click', async () => {
+    try {
+        searchInput.value = ''; // Borrar la búsqueda al hacer clic en "Inicio"
+        currentPage = 1; // Restablecer currentPage a 1
+        await CallApi(''); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente
+        clearPage(); // Clear the page
+    } catch (error) {
+        console.error('Error al realizar la búsqueda:', error);
+    }
+});
+
+// Agregar evento de clic al botón "Explorar" para refrescar la página
+explorerButton.addEventListener('click', () => {
+    window.location.reload();
+});
 
 // Add event listener to search input to clear page when empty
 searchInput.addEventListener('input', function() {
@@ -106,6 +151,3 @@ searchInput.addEventListener('input', function() {
         clearPage();
     }
 });
-
-// Add event listener to the "Crear" button to clear the page
-createButtonElement.addEventListener('click', clearPage);
