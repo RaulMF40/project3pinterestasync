@@ -17,26 +17,16 @@ pinterestImage.className = 'image-button-s';
 pinterestImage.src = 'https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png';
 pinterestButton.append(pinterestImage);
 
-// Create the refresh button
-const refreshButton = document.createElement('button');  // Solo creamos el botón una vez
-refreshButton.innerText = 'Refrescar';
-refreshButton.classList.add('refresh-button'); // Añadir clase al botón de refresco
-refreshButton.addEventListener('click', () => {
-    window.location.reload();
-});
-// Y aquí lo exportamos
-export { refreshButton };
-
 // Create the initial button
 const initialButton = document.createElement('button');
 initialButton.id = 'initial-button';
 initialButton.innerText = 'Inicio';
 
 // Create the explorer button
-const explorerButton = document.createElement('button');
-explorerButton.innerText = 'Explorar';
+const exploreButton = document.createElement('button');
+exploreButton.innerText = 'Explorar';
 
-firstDiv.append(pinterestButton, refreshButton, initialButton, explorerButton);
+firstDiv.append(pinterestButton, initialButton, exploreButton);
 
 // Create the search input
 export const searchInput = document.createElement('input');
@@ -148,16 +138,9 @@ homeButton.addEventListener('click', async () => {
     }
 });
 
-// Agregar evento de clic al botón "Explorar" para llamar a la función CallApi con una cadena vacía
-exploreButton.addEventListener('click', async () => {
-    try {
-        searchInput.value = ''; // Borrar la búsqueda al hacer clic en "Explorar"
-        currentPage = 1; // Restablecer currentPage a 1
-        await CallApi(''); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente
-        clearPage(); // Clear the page
-    } catch (error) {
-        console.error('Error al realizar la búsqueda:', error);
-    }
+// Agregar evento de clic al botón "Explorar" para refrescar la página
+exploreButton.addEventListener('click', () => {
+    window.location.reload();
 });
 
 // Add event listener to search input to clear page when empty
@@ -168,4 +151,4 @@ searchInput.addEventListener('input', function() {
 });
 
 // Agregar evento de clic al botón "Crear" para limpiar la página
-createButtonElement.addEventListener('click', clearPage);
+createButtonElement.addEventListener('click', clearPage); 
