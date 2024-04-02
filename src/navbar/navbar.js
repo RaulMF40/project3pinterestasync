@@ -1,9 +1,7 @@
 import '/src/navbar/navbar.css';
 import { currentPage } from './src/globals.js';
 import { createButtonElement } from './src/button/button.js'; // Importa createButtonElement
-import { CallApi } from './main.js'; // Importa CallApi desde main.js
-import { searchInput, homeButton, explorerButton } from './src/navbar/navbar.js'; // Importa los elementos del navbar
-
+import { CallApi, searchInput, homeButton, explorerButton } from './main.js'; // Importa CallApi desde main.js
 
 // Create the navigation bar element
 export const createNavBar = document.createElement('nav');
