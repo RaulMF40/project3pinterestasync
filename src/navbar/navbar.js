@@ -31,6 +31,16 @@ createButton.innerText = 'Crear';
 
 firstDiv.append(pinterestButton, initialButton, explorerButton, createButton);
 
+// Create the refresh button
+const refreshButton = document.createElement('button');
+refreshButton.innerText = 'Refrescar';
+refreshButton.addEventListener('click', () => {
+    window.location.reload();
+});
+
+// Append the refresh button to the first div of the navigation bar
+firstDiv.appendChild(refreshButton);
+
 // Create the search input
 export const searchInput = document.createElement('input');
 searchInput.type = 'text';
