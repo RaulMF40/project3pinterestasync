@@ -3,7 +3,8 @@ import { createCardSection } from './src/imagesSection/images.js';
 import { drawCard } from './src/cards/cards.js';
 import { createButton } from './src/button/button.js';
 import { createFooter } from './src/footer/footer.js';
-import { createNavBar, refreshButton, searchInput } from './src/navbar/navbar.js'; 
+import { createNavBar, searchInput } from './src/navbar/navbar.js';
+import { refreshButton } from './src/navbar/navbar.js';
 import { currentPage } from './src/globals.js';
 
 createCardSection();
@@ -77,6 +78,10 @@ const navbar = createNavBar();
 // Inserta la barra de navegación en el DOM
 const app = document.querySelector('#app');
 document.body.insertBefore(navbar, app); // Inserta la barra de navegación antes de #app
+
+// Agregar el botón de refrescar al lugar deseado
+const firstDiv = document.querySelector('#first-div');
+firstDiv.insertBefore(refreshButton, firstDiv.children[1]);
 
 // Agregar un evento de clic al botón de refrescar
 refreshButton.addEventListener('click', () => {
