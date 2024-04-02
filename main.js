@@ -113,7 +113,7 @@ import { drawCard } from './src/cards/cards.js';
 import { createButton } from './src/button/button.js';
 import { createFooter } from './src/footer/footer.js';
 import { createNavBar, searchInput, homeButton } from './src/navbar/navbar.js';
-import { currentPage } from './src/globals.js';
+import { searchInput, currentPage } from './src/globals.js'; 
 
 createCardSection();
 
