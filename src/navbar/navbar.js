@@ -1,5 +1,5 @@
 import '/src/navbar/navbar.css';
-import { currentPage } from '../../globals.js';
+import { currentPage } from './src/globals.js';
 
 // Create the navigation bar element
 export const createNavBar = document.createElement('nav');
