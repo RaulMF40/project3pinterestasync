@@ -18,6 +18,13 @@ pinterestImage.className = 'image-button-s';
 pinterestImage.src = 'https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png';
 pinterestButton.append(pinterestImage);
 
+// Create the refresh button
+const refreshButton = document.createElement('button');
+refreshButton.innerText = 'Refrescar';
+refreshButton.addEventListener('click', () => {
+    window.location.reload();
+});
+
 // Create other buttons for the navigation bar
 const initialButton = document.createElement('button');
 initialButton.id = 'initial-button';
@@ -29,17 +36,7 @@ explorerButton.innerText = 'Explorar';
 const createButton = document.createElement('button');
 createButton.innerText = 'Crear';
 
-firstDiv.append(pinterestButton, initialButton, explorerButton, createButton);
-
-// Create the refresh button
-const refreshButton = document.createElement('button');
-refreshButton.innerText = 'Refrescar';
-refreshButton.addEventListener('click', () => {
-    window.location.reload();
-});
-
-// Append the refresh button to the first div of the navigation bar
-firstDiv.appendChild(refreshButton);
+firstDiv.append(pinterestButton, refreshButton, initialButton, explorerButton, createButton);
 
 // Create the search input
 export const searchInput = document.createElement('input');
