@@ -78,8 +78,11 @@ const navbar = createNavBar();
 const app = document.querySelector('#app');
 document.body.insertBefore(navbar, app); // Inserta la barra de navegación antes de #app
 
-// Agregar un evento de clic al botón de explorar para refrescar la página
-const exploreButton = document.querySelector('.explorer-button');
-exploreButton.addEventListener('click', () => {
+// Agregar evento de clic al botón de explorar para recargar la página
+const explorerButton = document.getElementById('explorer-button');
+explorerButton.addEventListener('click', () => {
     window.location.reload();
 });
+
+// Agregar evento de clic al botón "Crear" para limpiar la página
+createButtonElement.addEventListener('click', clearPage);
