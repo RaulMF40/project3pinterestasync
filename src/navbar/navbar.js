@@ -23,23 +23,6 @@ const initialButton = document.createElement('button');
 initialButton.id = 'initial-button';
 initialButton.innerText = 'Inicio';
 
-// Función para inicializar la página
-const init = async () => {
-    renderHeader();
-    await renderImages();
-    renderFooter();
-    document.body.querySelector(".button-refresh-home").addEventListener('click', refreshButton);
-    document.body.querySelector(".search-bar").addEventListener('keydown', function (event) {
-        if (event.key === 'Enter') {
-            event.preventDefault(); // Prevenir el comportamiento predeterminado de la tecla Enter (por ejemplo, el envío de un formulario)
-            query(document.getElementById("query-input").value);
-        }
-    });
-}
-
-// Llamada a la función init al cargar el script
-init();
-
 const explorerButton = document.createElement('button');
 explorerButton.innerText = 'Explorar';
 
