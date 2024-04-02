@@ -85,4 +85,4 @@ explorerButton.addEventListener('click', () => {
 });
 
 // Agregar evento de clic al botón "Crear" para limpiar la página
-createButtonElement.addEventListener('click', clearPage);
+explorerButton.addEventListener('click', clearPage);
