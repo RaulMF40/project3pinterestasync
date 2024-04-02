@@ -4,6 +4,9 @@ import { currentPage } from '../../globals.js';
 // Create the navigation bar element
 export const createNavBar = document.createElement('nav');
 createNavBar.className = 'navbar';
+export const refreshButton = document.createElement('button');
+refreshButton.innerText = 'Refrescar';
+refreshButton.classList.add('refresh-button'); // Añadir clase al botón de refresco
 
 // Create the first div of the navigation bar
 const firstDiv = document.createElement('div');
