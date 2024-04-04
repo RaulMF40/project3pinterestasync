@@ -147,6 +147,8 @@ search('término de búsqueda');
 export const homeButton = document.getElementById('initial-button'); // Exportamos homeButton para que sea accesible desde main.js
 export const explorerButton = document.getElementById('explorer-button'); // Exportamos explorerButton para que sea accesible desde main.js
 
+import { resetPage, reloadPage } from './utils.js';
+
 // Agregar evento de clic al botón de inicio para restablecer la página
 homeButton.addEventListener('click', async () => {
   try {
@@ -158,15 +160,16 @@ homeButton.addEventListener('click', async () => {
 
 // Agregar evento de clic al botón de explorar para recargar la página
 explorerButton.addEventListener('click', () => {
-  reloadPage();
+  reloadPage(); // Usar la función reloadPage() para recargar la página
 });
 
 // Mantener el evento de entrada en el campo de búsqueda para realizar acciones adicionales según sea necesario
 searchInput.addEventListener('input', function() {
   if (searchInput.value === '') {
-    clearPage();
+    // clearPage();
   }
 });
+
 
 
 /*
