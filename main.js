@@ -9,9 +9,9 @@ import { resetPage, reloadPage } from './src/utils.js';
 /* createCardSection(); */
 let currentPage = 1
 
-async function CallApi(inputValue, currentPage = 1, perPage = 15, resetPage = true) {
+async function CallApi(inputValue, page = currentPage, perPage = 15, resetPage = true) {
   const ACCESS_KEY = 'ZoYrICho_8WIhQQu2dAtWN2D6QGb5xfgBn7ieXbloYA';
-  const API_URL = `https://api.unsplash.com/search/photos?query=${inputValue}&page=${currentPage}&per_page=${perPage}&client_id=${ACCESS_KEY}`;
+  const API_URL = `https://api.unsplash.com/search/photos?query=${inputValue}&page=${page}&per_page=${perPage}&client_id=${ACCESS_KEY}`;
   try {
     const response = await fetch(API_URL);
     const data = await response.json();
