@@ -149,7 +149,7 @@ export const explorerButton = document.getElementById('explorer-button'); // Exp
 homeButton.addEventListener('click', async () => {
     try {
         searchInput.value = ''; // Borrar la búsqueda al hacer clic en "Inicio"
-        currentPage = 1; // Restablecer currentPage a 1
+        page = 1; // Restablecer Page a 1
         await CallApi(''); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente
     } catch (error) {
         console.error('Error al realizar la búsqueda:', error);
