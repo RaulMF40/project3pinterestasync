@@ -4,12 +4,11 @@ import { drawCard } from './src/cards/cards.js';
 import { createButton } from './src/button/button.js';
 import { createFooter } from './src/footer/footer.js';
 import { createNavBar, } from './src/navbar/navbar.js';
-/* import { currentPage, searchInput } from './src/globals.js'; */
 
 /* createCardSection(); */
-let currentPage = 1
+let page = 1
 
-async function CallApi(inputValue, page = currentPage, perPage = 15, resetPage = true) {
+async function CallApi(inputValue, page = 1, perPage = 15, resetPage = true) {
   const ACCESS_KEY = 'ZoYrICho_8WIhQQu2dAtWN2D6QGb5xfgBn7ieXbloYA';
   const API_URL = `https://api.unsplash.com/search/photos?query=${inputValue}&page=${page}&per_page=${perPage}&client_id=${ACCESS_KEY}`;
   try {
@@ -21,7 +20,7 @@ async function CallApi(inputValue, page = currentPage, perPage = 15, resetPage =
     cardSection.className = 'cardSection';
 
     if (resetPage) {
-      currenPage = 1; // Restablecer currentPage a 1 si se establece la bandera resetPage
+      page = 1; // Restablecer Page a 1 si se establece la bandera resetPage
     }
 
     if (data && data.results && data.results.length > 0) {
@@ -41,7 +40,7 @@ async function CallApi(inputValue, page = currentPage, perPage = 15, resetPage =
   }
 }
 
-CallApi('landscape', currentPage); // Llama a la función CallApi para cargar las imágenes iniciales
+CallApi('landscape', page); // Llama a la función CallApi para cargar las imágenes iniciales
 
 // Función para manejar el evento de tecla presionada
 const handleKeyDown = (event) => {
@@ -61,9 +60,9 @@ const showMoreButton = document.getElementById('show-more');
 
 showMoreButton.addEventListener('click', async () => {
   try {
-    currentPage++; // Incrementa el número de página actual
+    page++; // Incrementa el número de página actual
     const inputValue = searchInput.value;
-    await CallApi(inputValue, currentPage); // Llama a la función CallApi con el término de búsqueda actual y la página actual
+    await CallApi(inputValue, page); // Llama a la función CallApi con el término de búsqueda actual y la página actual
   } catch (error) {
     console.error('Error al cargar más imágenes', error);
   }
@@ -75,7 +74,7 @@ showMoreButton.addEventListener('click', async () => {
 homeButton.addEventListener('click', async () => {
   try {
     searchInput.value = ''; // Borrar la búsqueda al hacer clic en "Inicio"
-    currentPage = 1; // Restablecer currentPage a 1
+    page = 1; // Restablecer Page a 1
     await CallApi(''); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente
   } catch (error) {
     console.error('Error al realizar la búsqueda:', error);
