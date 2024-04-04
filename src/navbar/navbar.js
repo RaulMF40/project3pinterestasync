@@ -1,4 +1,6 @@
 import './navbar.css';
+import { resetPage, reloadPage } from './src/utils.js';
+
 
 // Create the navigation bar element
 export const createNavBar = document.createElement('nav');
@@ -145,6 +147,29 @@ search('término de búsqueda');
 export const homeButton = document.getElementById('initial-button'); // Exportamos homeButton para que sea accesible desde main.js
 export const explorerButton = document.getElementById('explorer-button'); // Exportamos explorerButton para que sea accesible desde main.js
 
+// Agregar evento de clic al botón de inicio para restablecer la página
+homeButton.addEventListener('click', async () => {
+  try {
+    resetPage();
+  } catch (error) {
+    console.error('Error al realizar la búsqueda:', error);
+  }
+});
+
+// Agregar evento de clic al botón de explorar para recargar la página
+explorerButton.addEventListener('click', () => {
+  reloadPage();
+});
+
+// Mantener el evento de entrada en el campo de búsqueda para realizar acciones adicionales según sea necesario
+searchInput.addEventListener('input', function() {
+  if (searchInput.value === '') {
+    clearPage();
+  }
+});
+
+
+/*
 // Agregar evento de clic al botón "Inicio" para restablecer la página
 homeButton.addEventListener('click', async () => {
     try {
@@ -166,4 +191,4 @@ searchInput.addEventListener('input', function() {
     if (searchInput.value === '') {
         clearPage();
     }
-});
+}); */
