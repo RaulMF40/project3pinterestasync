@@ -3,8 +3,8 @@ import { createCardSection } from './src/imagesSection/images.js';
 import { drawCard } from './src/cards/cards.js';
 import { createButton } from './src/button/button.js';
 import { createFooter } from './src/footer/footer.js';
-import { createNavBar, homeButton, explorerButton } from './src/navbar/navbar.js';
-import { currentPage, searchInput } from './src/globals.js'; 
+import { createNavBar, } from './src/navbar/navbar.js';
+/* import { currentPage, searchInput } from './src/globals.js'; */
 
 createCardSection();
 
