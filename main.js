@@ -68,7 +68,7 @@ showMoreButton.addEventListener('click', async () => {
   }
 });
 
-createFooter(); // Crea el pie de página
+/*createFooter(); */// Crea el pie de página
 
 // Agregar evento de clic al botón "Inicio" para llamar a la función CallApi con una cadena vacía
 homeButton.addEventListener('click', async () => {
