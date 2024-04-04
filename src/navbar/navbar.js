@@ -31,6 +31,23 @@ explorerButton.id = 'explorer-button';
 
 firstDiv.append(pinterestButton, initialButton, explorerButton);
 
+// Agregar evento de clic a todos los botones de la barra de navegación excepto el botón "Inicio"
+const navigationButtons = document.querySelectorAll('.button');
+navigationButtons.forEach(button => {
+    if (button.id !== 'initial-button') {
+        button.addEventListener('click', async () => {
+            try {
+                searchInput.value = ''; // Borrar la búsqueda al hacer clic en cualquier otro botón
+                await CallApi(''); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente
+            } catch (error) {
+                console.error('Error al realizar la búsqueda:', error);
+            }
+        });
+    }
+});
+
+navigationButtons()
+
 // Create the search input
 export const searchInput = document.createElement('input');
 searchInput.type = 'text';
