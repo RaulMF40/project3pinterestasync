@@ -4,6 +4,7 @@ import { drawCard } from './src/cards/cards.js';
 import { createButton } from './src/button/button.js';
 import { createFooter } from './src/footer/footer.js';
 import { createNavBar, } from './src/navbar/navbar.js';
+import { resetPage, reloadPage } from './utils.js';
 
 /* createCardSection(); */
 let page = 1
@@ -70,12 +71,10 @@ showMoreButton.addEventListener('click', async () => {
 
 /*createFooter(); */// Crea el pie de página
 
-// Agregar evento de clic al botón "Inicio" para llamar a la función CallApi con una cadena vacía
+// Agregar evento de clic al botón de inicio para restablecer la página
 homeButton.addEventListener('click', async () => {
   try {
-    searchInput.value = ''; // Borrar la búsqueda al hacer clic en "Inicio"
-    page = 1; // Restablecer Page a 1
-    await CallApi(''); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente
+    resetPage();
   } catch (error) {
     console.error('Error al realizar la búsqueda:', error);
   }
@@ -83,7 +82,7 @@ homeButton.addEventListener('click', async () => {
 
 // Agregar evento de clic al botón de explorar para recargar la página
 explorerButton.addEventListener('click', () => {
-  window.location.reload(); // Recargar la página
+  reloadPage();
 });
 
 // Mantener el evento de entrada en el campo de búsqueda para realizar acciones adicionales según sea necesario
@@ -92,4 +91,3 @@ searchInput.addEventListener('input', function() {
     // clearPage();
   }
 });
-
