@@ -1,11 +1,7 @@
 // Definir una función para restablecer la página
-function resetPage() {
-  clearPage() // Limpiar la página
-}
-
 export function resetPage() {
   searchInput.value = ''; // Borrar la búsqueda
-  currentPage = 1; // Restablecer Page a 1
+  currentPage = 1; // Restablecer currentPage a 1
   CallApi(''); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente
 }
 
