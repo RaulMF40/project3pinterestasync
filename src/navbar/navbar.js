@@ -1,5 +1,5 @@
 import './navbar.css';
-import { resetPage, reloadPage } from './src/utils.js';
+import { resetPage, reloadPage } from './utils.js';
 
 
 // Create the navigation bar element
