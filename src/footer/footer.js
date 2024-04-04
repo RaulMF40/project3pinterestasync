@@ -5,3 +5,5 @@ export const createFooter = () => {
   footer.innerText = 'Create by Raúl MF ©️ 2024 RockTheCode 🤖'
   document.body.appendChild(footer)
 }
+
+createFooter(); 
