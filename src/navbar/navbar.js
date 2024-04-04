@@ -1,7 +1,7 @@
-import '/src/navbar/navbar.css';
+import './navbar.css';
 import { currentPage } from './src/globals.js';
 import { createButtonElement } from './src/button/button.js'; // Importa createButtonElement
-import { CallApi, searchInput as navSearchInput, homeButton, explorerButton as navExplorerButton } from './main.js'; // Renombrar las variables importadas para evitar conflictos
+import { CallApi, searchInput, homeButton, explorerButton } from './main.js'; // Importa CallApi desde main.js
 
 // Create the navigation bar element
 export const createNavBar = document.createElement('nav');
@@ -20,17 +20,22 @@ pinterestImage.src = 'https://upload.wikimedia.org/wikipedia/commons/0/08/Pinter
 pinterestButton.append(pinterestImage);
 
 // Create the initial button
-homeButton.innerText = 'Inicio';
+const initialButton = document.createElement('button');
+initialButton.id = 'initial-button';
+initialButton.innerText = 'Inicio';
 
 // Create the explorer button
-navExplorerButton.innerText = 'Explorar';
+const explorerButton = document.createElement('button');
+explorerButton.innerText = 'Explorar';
+explorerButton.id = 'explorer-button'; 
 
-firstDiv.append(pinterestButton, homeButton, navExplorerButton);
+firstDiv.append(pinterestButton, initialButton, explorerButton);
 
 // Create the search input
-navSearchInput.type = 'text';
-navSearchInput.placeholder = '🔍 Buscar';
-navSearchInput.id = 'searchBar';
+export const searchInput = document.createElement('input');
+searchInput.type = 'text';
+searchInput.placeholder = '🔍 Buscar';
+searchInput.id = 'searchBar';
 
 // Create the second div of the navigation bar
 const secondDiv = document.createElement('div');
@@ -81,12 +86,70 @@ optionsButton.append(optionsImg, divSpanOptions);
 
 secondDiv.append(notificationsButton, messagesButton, profileButton, optionsButton);
 
-createNavBar.append(firstDiv, navSearchInput, secondDiv);
+createNavBar.append(firstDiv, searchInput, secondDiv);
 
 // Insert the navigation bar into the document body
 const app = document.querySelector('#app');
 document.body.insertBefore(createNavBar, app);
 
+/*
+// Remove previous results
+function clearPage() {
+    const previousResults = document.querySelectorAll('.resultado');
+    previousResults.forEach(result => result.remove());
+    searchInput.value = ''; // Clear search input
+}
+*/
+
+// Function to render new results
+function renderNewResults(newResults) {
+    /*clearPage();*/ // Clear the page before rendering new results
+    newResults.forEach(result => {
+        // Create a result element and configure it
+        const resultElement = document.createElement('div');
+        resultElement.className = 'resultado';
+        resultElement.textContent = result;
+
+        // Add the result element to the results container
+        document.body.appendChild(resultElement);
+    });
+}
+
+function search(query) {
+    try {
+        // Llamar a la función CallApi con la consulta de búsqueda
+        CallApi(query);
+    } catch (error) {
+        console.error('Error al realizar la búsqueda:', error);
+    }
+}
+
+// Example of calling the search function
+search('término de búsqueda');
+
 // Get the home button and explore button from the navigation bar
-export const homeButton = document.getElementById('initial-button');
-export const explorerButton = document.getElementById('explorer-button');
+export const homeButton = document.getElementById('initial-button'); // Exportamos homeButton para que sea accesible desde main.js
+export const explorerButton = document.getElementById('explorer-button'); // Exportamos explorerButton para que sea accesible desde main.js
+
+// Agregar evento de clic al botón "Inicio" para restablecer la página
+homeButton.addEventListener('click', async () => {
+    try {
+        searchInput.value = ''; // Borrar la búsqueda al hacer clic en "Inicio"
+        currentPage = 1; // Restablecer currentPage a 1
+        await CallApi(''); // Llamar a la función de búsqueda con una cadena vacía para cargar imágenes automáticamente
+    } catch (error) {
+        console.error('Error al realizar la búsqueda:', error);
+    }
+});
+
+// Agregar evento de clic al botón "Explorar" para refrescar la página
+explorerButton.addEventListener('click', () => {
+    window.location.reload();
+});
+
+// Add event listener to search input to clear page when empty
+searchInput.addEventListener('input', function() {
+    if (searchInput.value === '') {
+        clearPage();
+    }
+});
