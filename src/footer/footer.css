@@ -1,5 +1,10 @@
 .footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%; /* Ajusta el ancho según tus necesidades */
   font-weight: bold;
   text-align: center;
   background-color: black;
+  color: white; /* Asegúrate de que el texto sea legible en el fondo negro */
+  padding: 10px 0; /* Ajusta el relleno superior e inferior según tus necesidades */
 }
