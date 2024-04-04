@@ -7,6 +7,7 @@ import { createNavBar, } from './src/navbar/navbar.js';
 /* import { currentPage, searchInput } from './src/globals.js'; */
 
 /* createCardSection(); */
+let currentPage = 1
 
 async function CallApi(inputValue, page = currentPage, perPage = 15, resetPage = true) {
   const ACCESS_KEY = 'ZoYrICho_8WIhQQu2dAtWN2D6QGb5xfgBn7ieXbloYA';
@@ -20,7 +21,7 @@ async function CallApi(inputValue, page = currentPage, perPage = 15, resetPage =
     cardSection.className = 'cardSection';
 
     if (resetPage) {
-      currentPage = 1; // Restablecer currentPage a 1 si se establece la bandera resetPage
+      currenPage = 1; // Restablecer currentPage a 1 si se establece la bandera resetPage
     }
 
     if (data && data.results && data.results.length > 0) {
