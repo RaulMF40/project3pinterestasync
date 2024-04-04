@@ -54,7 +54,7 @@ const handleKeyDown = (event) => {
 
 searchInput.addEventListener('keydown', handleKeyDown); // Agrega el evento de presionar tecla al input de búsqueda
 
-createButton(); // Crea el botón "Mostrar más" al principio
+/* createButton();*/ // Crea el botón "Mostrar más" al principio
 
 const showMoreButton = document.getElementById('show-more');
 
