@@ -7,11 +7,11 @@ import { createNavBar, } from './src/navbar/navbar.js';
 import { resetPage, reloadPage } from './src/utils.js';
 
 /* createCardSection(); */
-let page = 1
+let currentPage = 1
 
-async function CallApi(inputValue, page = 1, perPage = 15, resetPage = true) {
+async function CallApi(inputValue, currentPage = 1, perPage = 15, resetPage = true) {
   const ACCESS_KEY = 'ZoYrICho_8WIhQQu2dAtWN2D6QGb5xfgBn7ieXbloYA';
-  const API_URL = `https://api.unsplash.com/search/photos?query=${inputValue}&page=${page}&per_page=${perPage}&client_id=${ACCESS_KEY}`;
+  const API_URL = `https://api.unsplash.com/search/photos?query=${inputValue}&page=${currentPage}&per_page=${perPage}&client_id=${ACCESS_KEY}`;
   try {
     const response = await fetch(API_URL);
     const data = await response.json();
@@ -21,7 +21,7 @@ async function CallApi(inputValue, page = 1, perPage = 15, resetPage = true) {
     cardSection.className = 'cardSection';
 
     if (resetPage) {
-      page = 1; // Restablecer Page a 1 si se establece la bandera resetPage
+      currentPage = 1; // Restablecer Page a 1 si se establece la bandera resetPage
     }
 
     if (data && data.results && data.results.length > 0) {
@@ -61,7 +61,7 @@ const showMoreButton = document.getElementById('show-more');
 
 showMoreButton.addEventListener('click', async () => {
   try {
-    page++; // Incrementa el número de página actual
+    currentPage++; // Incrementa el número de página actual
     const inputValue = searchInput.value;
     await CallApi(inputValue, page); // Llama a la función CallApi con el término de búsqueda actual y la página actual
   } catch (error) {
