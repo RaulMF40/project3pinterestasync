@@ -19,3 +19,5 @@ export const createCardSection = (data) => {
     })
   app.append(cardSection)
 }
+
+createCardSection();
