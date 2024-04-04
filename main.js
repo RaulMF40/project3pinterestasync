@@ -88,6 +88,6 @@ explorerButton.addEventListener('click', () => {
 // Mantener el evento de entrada en el campo de búsqueda para realizar acciones adicionales según sea necesario
 searchInput.addEventListener('input', function() {
   if (searchInput.value === '') {
-    // clearPage();
+    clearPage();
   }
 });
