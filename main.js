@@ -4,7 +4,7 @@ import { drawCard } from './src/cards/cards.js';
 import { createButton } from './src/button/button.js';
 import { createFooter } from './src/footer/footer.js';
 import { createNavBar, } from './src/navbar/navbar.js';
-import { resetPage, reloadPage } from './utils.js';
+import { resetPage, reloadPage } from './src/utils.js';
 
 /* createCardSection(); */
 let page = 1
