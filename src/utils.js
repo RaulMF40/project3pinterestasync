@@ -1,4 +1,8 @@
 // Definir una función para restablecer la página
+function resetPage() {
+  clearPage() // Limpiar la página
+}
+
 export function resetPage() {
   searchInput.value = ''; // Borrar la búsqueda
   currentPage = 1; // Restablecer Page a 1
