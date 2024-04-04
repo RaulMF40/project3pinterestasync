@@ -20,3 +20,5 @@ export const createButtonElement = () => {
   // Añadir el botón al cuerpo del documento
   document.body.append(showMoreButton);
 };
+
+createButton();
