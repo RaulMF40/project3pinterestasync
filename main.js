@@ -63,7 +63,7 @@ showMoreButton.addEventListener('click', async () => {
   try {
     currentPage++; // Incrementa el número de página actual
     const inputValue = searchInput.value;
-    await CallApi(inputValue, page); // Llama a la función CallApi con el término de búsqueda actual y la página actual
+    await CallApi(inputValue, currentPage); // Llama a la función CallApi con el término de búsqueda actual y la página actual
   } catch (error) {
     console.error('Error al cargar más imágenes', error);
   }
