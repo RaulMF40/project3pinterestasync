@@ -72,7 +72,7 @@ showMoreButton.addEventListener('click', async () => {
 /*createFooter(); */// Crea el pie de página
 
 // Agregar evento de clic al botón de inicio para restablecer la página
-homeButton.addEventListener('click', async () => {
+initialButton.addEventListener('click', async () => {
   try {
     resetPage();
   } catch (error) {
