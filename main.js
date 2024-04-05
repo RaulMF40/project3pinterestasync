@@ -49,7 +49,7 @@ const handleKeyDown = (event) => {
     event.preventDefault(); // Prevenir el comportamiento predeterminado del evento
 
     const inputValue = event.target.value;
-    CallApi(inputValue,);
+    CallApi(inputValue);
   }
 };
 
@@ -72,27 +72,27 @@ showMoreButton.addEventListener('click', async () => {
 /*createFooter(); */// Crea el pie de página
 
 // Agregar evento de clic al botón de inicio para restablecer la página
-/* homeButton.addEventListener('click', async () => {
+homeButton.addEventListener('click', async () => {
   try {
     resetPage();
   } catch (error) {
     console.error('Error al realizar la búsqueda:', error);
   }
-}); */
+}); 
 
 // Agregar evento de clic al botón de explorar para recargar la página
-/* explorerButton.addEventListener('click', () => {
+ explorerButton.addEventListener('click', () => {
   reloadPage();
-}); */
+}); 
 
 // Mantener el evento de entrada en el campo de búsqueda para realizar acciones adicionales según sea necesario
-/* searchInput.addEventListener('change', function() {
+searchInput.addEventListener('change', function() {
   if (searchInput.value === '') {
     clearPage();
   }else {
-    CallApi('perro')
+    CallApi(inputValue)
   }
-}); */
+}); 
 
 
 
