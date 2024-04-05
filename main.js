@@ -78,7 +78,7 @@ initialButton.addEventListener('click', async () => {
   } catch (error) {
     console.error('Error al realizar la búsqueda:', error);
   }
-}); */
+}); 
 
 // Agregar evento de clic al botón de explorar para recargar la página
  explorerButton.addEventListener('click', () => {
@@ -93,7 +93,7 @@ searchInput.addEventListener('change', function() {
     CallApi(inputValue)
   }
 }); 
-
+*/
 
 
 
