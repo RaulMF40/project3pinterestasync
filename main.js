@@ -70,7 +70,7 @@ showMoreButton.addEventListener('click', async () => {
 });
 
 /*createFooter(); */// Crea el pie de página
-
+/*
 // Agregar evento de clic al botón de inicio para restablecer la página
 initialButton.addEventListener('click', async () => {
   try {
@@ -78,7 +78,7 @@ initialButton.addEventListener('click', async () => {
   } catch (error) {
     console.error('Error al realizar la búsqueda:', error);
   }
-}); 
+}); */
 
 // Agregar evento de clic al botón de explorar para recargar la página
  explorerButton.addEventListener('click', () => {
